@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../utils/api.js";
 import Room from "../components/Room.js";
 import Loader from "../components/Loader.js";
 import Error from "../components/Error.js";
@@ -18,7 +19,9 @@ function HomeScreen() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("/api/get/room/getrooms");
+        const response = await axios.get(
+          `${API_BASE_URL}/api/get/room/getrooms`
+        );
         console.log(response.data);
         setrooms(response.data);
         setLoading(false);
