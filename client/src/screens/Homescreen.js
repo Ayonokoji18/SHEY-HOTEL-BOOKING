@@ -5,7 +5,7 @@ import { API_BASE_URL } from "../utils/api.js";
 import Room from "../components/Room.js";
 import Loader from "../components/Loader.js";
 import Error from "../components/Error.js";
-import moment from "moment";
+
 import { DatePicker } from "antd";
 const { RangePicker } = DatePicker;
 
