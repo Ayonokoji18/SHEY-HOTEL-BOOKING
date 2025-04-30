@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Error from "../components/Error.js";
 import Loader from "../components/Loader.js";
+import { API_BASE_URL } from "../utils/api.js";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,10 @@ function Login() {
     };
     try {
       setloading(true);
-      const response = await axios.post("/api/users/login", user);
+      const response = await axios.post(
+        `${API_BASE_URL}/api/users/login`,
+        user
+      );
       console.log(response.data);
       setloading(false);
       localStorage.setItem("currentUser", JSON.stringify(response.data));

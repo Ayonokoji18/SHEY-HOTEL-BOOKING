@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../utils/api.js";
 import Success from "../components/Success.js";
 import Error from "../components/Error.js";
 import Loader from "../components/Loader.js";
@@ -25,7 +26,10 @@ function Register() {
 
       try {
         setloading(true);
-        const response = await axios.post("/api/users/register", user);
+        const response = await axios.post(
+          `${API_BASE_URL}/api/users/register`,
+          user
+        );
         console.log(response.data);
         setloading(false);
         setsuccess(true);
