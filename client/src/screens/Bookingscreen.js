@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import AOS from "aos";
+import { API_BASE_URL } from "../utils/api.js";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 // ..
 AOS.init({
@@ -20,9 +21,12 @@ function BookingScreen() {
     async function fetch() {
       try {
         setloading(true);
-        const response = await axios.post("/api/get/room/getroombyid", {
-          roomid: roomid,
-        });
+        const response = await axios.post(
+          `${API_BASE_URL}/api/get/room/getroombyid`,
+          {
+            roomid: roomid,
+          }
+        );
         setroom(response.data);
         setloading(false);
       } catch (err) {
